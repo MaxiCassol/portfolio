@@ -81,6 +81,15 @@ body {
     margin: 0 auto;
 }
 
+.column {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
 @media(max-width: 1340px) {
     .row {
         max-width: 1100px;
@@ -513,7 +522,19 @@ body:not(.user-is-tabbing) a:focus {
 .client__logos {
     display: flex;
     justify-content: space-between;
-    filter: invert(100%) grayscale(100%) opacity(.8);
+    filter: invert(100%) grayscale(80%) opacity(.8);
+    color: grey;
+}
+
+.client__logos:hover {
+    filter: none;
+    background-color: rgba(128, 128, 128, 0.728);
+    border-radius: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: grey
 }
 
 .client__logo {

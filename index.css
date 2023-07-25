@@ -180,15 +180,22 @@ h3 {
     h3 {
         font-size: var(--font-size-medium);
     }
+    .location {
+        display: block;
+    }
 }
 
 p {
     margin: var(--gutter-small-1) 0;
+    text-align: justify;
 }
 
 @media(max-width: 900px) {
     p { 
         max-width: var(--container-small-width);
+    }
+    .location {
+        display: block;
     }
 }
 
@@ -443,6 +450,9 @@ body:not(.user-is-tabbing) a:focus {
 
     .header__text p {
         transform: scale(.8);
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
 
@@ -458,7 +468,7 @@ body:not(.user-is-tabbing) a:focus {
 @media(max-width: 900px) {
     .work__box {
         align-items: initial;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 }
 

@@ -238,6 +238,7 @@ body:not(.user-is-tabbing) a:focus {
     border: 1px solid  var(--pink);
     font-weight: 400;
     margin-top: 0.4rem;
+    text-align: center;
 }
 
 .btn:focus {
@@ -318,7 +319,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .back-to-top {
     position: fixed;
-    bottom: 4rem;
+    bottom: 7rem;
     right: 4rem;
     display: flex;
     justify-content: center;
@@ -344,6 +345,31 @@ body:not(.user-is-tabbing) a:focus {
 
 @media(max-width: 500px) {
     .back-to-top {
+        right: 1rem;
+    }
+}
+
+.whatsapp{
+    position: fixed;
+    bottom: 1rem;
+    right: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5.5rem;
+    width: 5.5rem;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+@media(max-width: 900px) {
+    .whatsapp {
+        right: 2rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .whatsapp {
         right: 1rem;
     }
 }

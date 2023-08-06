@@ -447,8 +447,8 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./images/header.jpg');
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+        url('./images/header.jpeg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -608,6 +608,21 @@ a {
 
 .about__photo-container {
     margin-bottom: var(--gutter-normal);
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+        url('./images/1.jpeg');
+    padding-top: 2rem;
+    height: 73.7vh;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-size: var(--font-size-normal);
+    border-radius: 50%;
+}
+
+.about__photo{
+    border-radius: 50%;
 }
 
 @media(min-width: 901px) {

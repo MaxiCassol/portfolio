@@ -42,7 +42,7 @@
 
     --container-max-width: 1180px;
     --container-normal-width: 800px;
-    --container-medium-width: 700px; 
+    --container-medium-width: 700px;
     --container-small-width: 500px;
 
     --gutter-huge: 12rem;
@@ -55,7 +55,8 @@
 }
 
 html {
-    font-size: 62.5%; /* (16/10)*100 = 62.5% => 1rem = 10px */
+    font-size: 62.5%;
+    /* (16/10)*100 = 62.5% => 1rem = 10px */
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
@@ -180,6 +181,7 @@ h3 {
     h3 {
         font-size: var(--font-size-medium);
     }
+
     .location {
         display: block;
     }
@@ -191,9 +193,10 @@ p {
 }
 
 @media(max-width: 900px) {
-    p { 
+    p {
         max-width: var(--container-small-width);
     }
+
     .location {
         display: block;
     }
@@ -235,7 +238,7 @@ body:not(.user-is-tabbing) a:focus {
     padding: 1rem 4.2rem;
     text-decoration: none;
     color: inherit;
-    border: 1px solid  var(--pink);
+    border: 1px solid var(--pink);
     font-weight: 400;
     margin-top: 0.4rem;
     text-align: center;
@@ -349,7 +352,7 @@ body:not(.user-is-tabbing) a:focus {
     }
 }
 
-.whatsapp{
+.whatsapp {
     position: fixed;
     bottom: 1rem;
     right: 4rem;
@@ -382,8 +385,8 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     justify-content: flex-start;
     padding: var(--gutter-normal) 0;
-    position:absolute;
-    transition:all .5s ease;
+    position: absolute;
+    transition: all .5s ease;
 }
 
 .nav__items {
@@ -449,7 +452,7 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
         url('./images/header.jpeg');
     height: 100vh;
     background-size: cover;
@@ -610,7 +613,7 @@ a {
 
 .about__photo-container {
     margin-bottom: var(--gutter-normal);
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
         url('./images/1.jpeg');
     padding-top: 2rem;
     height: 73.7vh;
@@ -623,7 +626,7 @@ a {
     border-radius: 50%;
 }
 
-.about__photo{
+.about__photo {
     border-radius: 50%;
 }
 
@@ -631,7 +634,7 @@ a {
     .about__text {
         flex: 0 0 35%;
     }
-    
+
     .about__photo-container {
         flex: 1;
         margin: 0 var(--gutter-huge) 0 0;
@@ -685,7 +688,7 @@ a {
 @media(max-width: 500px) {
     .footer {
         padding: var(--gutter-medium) 0;
-    } 
+    }
 }
 
 
@@ -694,17 +697,19 @@ a {
 /* --------------------------------------- */
 
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-  }
-  
-  .main {
+}
+
+.main {
     text-align: left;
     padding-top: 100px;
     margin-left: 10%;
-  }
-  
-  .hamburger {
+}
+
+.hamburger {
     position: relative;
     width: 70px;
     height: 70px;
@@ -713,138 +718,78 @@ a {
     justify-content: space-between;
     cursor: pointer;
     padding: 20px;
-    
+
     &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 20px;
-      background: #747474;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #747474, #747474);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #747474, #747474); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      transform: rotate(0deg);
-      transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #383838;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #383838, #383838);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #383838, #383838);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        transform: rotate(0deg);
+        transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
     }
-    
+
     .hamburger-input {
-      position: absolute;
-      opacity: 0;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      cursor: pointer;
+        position: absolute;
+        opacity: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        cursor: pointer;
     }
-    
+
     .hamburger-line {
-      width: 100%;
-      background: #fff;
-      height: 2px;
-      display: block;
-      border-radius: 6px;
-      transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
-      position: relative;
-      
-      &.first,
-      &.third {
-        width: 50%;
-      }
-      
-      &.third {
-        margin-left: 50%;
-        transform-origin: left;
-      }
+        width: 100%;
+        background: #fff;
+        height: 2px;
+        display: block;
+        border-radius: 6px;
+        transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
+        position: relative;
+
+        &.first,
+        &.third {
+            width: 50%;
+        }
+
+        &.third {
+            margin-left: 50%;
+            transform-origin: left;
+        }
     }
-  }
-  
+}
+
 .menu-button-wrapper {
     position: relative;
     display: inline-block;
-    
-    .item-list {
-      position: absolute;
-      top: 0px;
-      transform: translateX(100%) scaleY(0) translateY(-100%);
-      transform-origin: top;
-      transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
-      color: #fff;
-      width: 200px;
-      left: 130%;
-      padding: 15px 0;
-      text-align: center;
-      opacity: 0;
-      user-select: none;
-      display: flex;
-      flex-direction: row;
-            
-      div {
-        padding: 10px 30px;
-        cursor: pointer;
-      }
-    }
-    
-    .menu-button {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      left: 0;
-      z-index: 2;
-      opacity: 0;
-      cursor: pointer;
-    }
-  }
-  
-  .menu-button {
-    &:checked ~ .item-list {
-      transform: translateX(100%) scaleY(1); 
-      opacity: 1;
-      user-select: auto;
-    }  
-    
-    &:checked ~ .icon-wrapper .hamburger-line.second {
-      transform: rotate(-45deg); 
-    }
-  
-    &:checked ~ .icon-wrapper .hamburger-line.first {
-      transform: translate(2px, 8px) rotate(-135deg);
-    }
-  
-    &:checked ~ .icon-wrapper .hamburger-line.third {
-      transform: translate(11px, -3px) rotate(-135deg);
-    }
-    
-    &:checked ~ .icon-wrapper .hamburger:before {
-      transform: rotate(45deg);
-    }
-  }
-  
-  @media(max-width: 500px){
-    .menu-button-wrapper {
-      position: relative;
-      display: inline-block;      
-    }
-  
+
     .item-list {
         position: absolute;
-        top: 90px;
-        transform: translateX(-50%) scale(0);
-        transform-origin: center;
+        top: 0px;
+        transform: translateX(100%) scaleY(0) translateY(-100%);
+        transform-origin: top;
         transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
-        background-color: #303242;
         color: #fff;
-        width: 200px;
-        left: 50%;
         padding: 15px 0;
-        text-align: left;
-        border-radius: 100px;
-        font-weight: 300;
         opacity: 0;
         user-select: none;
+        display: flex;
+        flex-direction: row;
+
+        div {
+            padding: 10px 30px;
+            cursor: pointer;
+        }
     }
-  
+
     .menu-button {
         position: absolute;
         width: 70px;
@@ -854,40 +799,68 @@ a {
         opacity: 0;
         cursor: pointer;
     }
-  }
-  
-  /* Estilos para pantallas pequeñas (hasta 768px) */
-  @media(max-width: 768px) {
+}
+
+.menu-button {
+    &:checked~.item-list {
+        transform: translateX(100%) scaleY(1);
+        opacity: 1;
+        user-select: auto;
+    }
+
+    &:checked~.icon-wrapper .hamburger-line.second {
+        transform: rotate(-45deg);
+    }
+
+    &:checked~.icon-wrapper .hamburger-line.first {
+        transform: translate(2px, 8px) rotate(-135deg);
+    }
+
+    &:checked~.icon-wrapper .hamburger-line.third {
+        transform: translate(11px, -3px) rotate(-135deg);
+    }
+
+    &:checked~.icon-wrapper .hamburger:before {
+        transform: rotate(45deg);
+    }
+}
+
+@media(max-width: 500px) {
     .menu-button-wrapper {
-      position: relative;
-      display:inline-flex ; /* Cambia a display block para apilar elementos */
+        position: relative;
+        display: inline-block;
+
+        .item-list {
+            position: absolute;
+            top: 90px;
+            right: 100%;
+            transform: translateX(-50%) scale(0);    
+            transform-origin: center;  
+            transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
+            color: #fff;
+        }
     }
-  
-    .item-list {
-        position: absolute;
-        top: 90px;
-        transform: translateX(-50%) scale(0);
-        transform-origin: center;
-        transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
-        background-color: #4256e8;
-        color: #fff;
-        width: 200px;
-        left: 50%;
-        padding: 15px 0;
-        text-align: left;
-        border-radius: 100px;
-        font-weight: 300;
-        opacity: 0;
-        user-select: none;
-    }
-  
-    .menu-button {
-        position: absolute;
-        width: 70px;
-        height: 70px;
-        left: 0;
-        z-index: 2;
-        opacity: 0;
-        cursor: pointer;
+}
+
+/* Estilos para pantallas pequeñas (hasta 768px) */
+@media(max-width: 768px) {
+    .menu-button-wrapper {
+        position: relative;
+        display: inline-block;
+
+        .item-list {
+            position: absolute;
+            top: 90px;
+            right: 100%;
+            transform: translateX(-50%) scale(0); 
+            transform-origin: center;   
+            transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
+            color: #fff;
+            font-size:medium;
+
+            div {
+                cursor: pointer;
+            }
+        }
     }
 }

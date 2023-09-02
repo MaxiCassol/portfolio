@@ -380,7 +380,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: var(--gutter-normal) 0;
 }
 
@@ -685,3 +685,47 @@ a {
         padding: var(--gutter-medium) 0;
     } 
 }
+.menu-toggle {
+    display: none; /* Ocultar el botón de menú en pantallas grandes */
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  .nav__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav__item {
+    margin: 0 15px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+      display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+    }
+  
+    .nav__items {
+      display: none; /* Ocultar la lista de elementos de navegación en pantallas pequeñas */
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #fff;
+      width: 100%;
+      z-index: 1;
+    }
+  
+    .nav__items.active {
+      display: flex; /* Mostrar el menú desplegable cuando se hace clic en el botón de menú */
+    }
+  }

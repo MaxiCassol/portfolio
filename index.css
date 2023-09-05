@@ -89,6 +89,16 @@ body {
     flex-direction: column;
     text-align: center;
     justify-content: center;
+    filter: invert(100%) grayscale(80%) opacity(0.8);
+    transition: filter 0.3s, background-color 0.3s;
+    padding: 10px;
+}
+
+.column:hover {
+    filter: none;
+    background-color: #fff;
+    border-radius: 10px;
+    
 }
 
 @media(max-width: 1340px) {
@@ -243,6 +253,8 @@ body:not(.user-is-tabbing) a:focus {
     font-weight: 400;
     margin-top: 0.4rem;
     text-align: center;
+    width: 280px;
+    margin-left: 25px;
 }
 
 .btn:focus {
@@ -566,7 +578,6 @@ body:not(.user-is-tabbing) a:focus {
     justify-content: space-between;
     color: grey;
 }
-
 
 .logos {
     filter: invert(100%) grayscale(80%) opacity(0.8);

@@ -571,11 +571,13 @@ body:not(.user-is-tabbing) a:focus {
 .logos {
     filter: invert(100%) grayscale(80%) opacity(0.8);
     transition: filter 0.3s, background-color 0.3s;
+    padding: 10px;
 }
 .logos:hover {
     filter: none;
-    background-color: rgba(128, 128, 128, 0.728);
+    background-color: #fff;
     border-radius: 10px;
+    
 }
 
 a {

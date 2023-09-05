@@ -843,7 +843,6 @@ a {
     }
 }
 
-/* Estilos para pantallas pequeñas (hasta 768px) */
 @media(max-width: 768px) {
     .menu-button-wrapper {
         position: relative;

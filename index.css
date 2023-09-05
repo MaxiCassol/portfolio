@@ -564,14 +564,18 @@ body:not(.user-is-tabbing) a:focus {
 .client__logos {
     display: flex;
     justify-content: space-between;
-    filter: invert(100%) grayscale(80%) opacity(.8);
     color: grey;
 }
 
-.client__logos:hover {
+
+.logos {
+    filter: invert(100%) grayscale(80%) opacity(0.8);
+    transition: filter 0.3s, background-color 0.3s;
+}
+.logos:hover {
     filter: none;
     background-color: rgba(128, 128, 128, 0.728);
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 a {

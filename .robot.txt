@@ -1,0 +1,36 @@
+*** Settings ***
+Library           SeleniumLibrary
+Suite Setup       Open Browser    ${URL}    ${BROWSER}
+Suite Teardown    Close All Browsers
+
+*** Variables ***
+${URL}            https://portfolio-maxicassol.vercel.app
+${BROWSER}        Chrome
+${WAIT TIME}      5s
+${EXPECTED TITLE}    Título_esperado_del_sitio
+${EXPECTED DESCRIPTION}    Descripcion_esperada_del_sitio
+
+*** Test Cases ***
+Verificar Titulo del Sitio
+    [Documentation]    Verifica que el título del sitio sea correcto
+    ${title} =    Get Title
+    Should Be Equal As Strings    ${title}    ${EXPECTED TITLE}
+
+Verificar Meta Datos
+    [Documentation]    Verifica la presencia y el contenido de los metadatos en la página
+    ${meta description} =    Execute JavaScript    return document.querySelector('meta[name="description"]').content
+    Should Be Equal As Strings    ${meta description}    ${EXPECTED DESCRIPTION}
+
+*** Keywords ***
+Open Browser
+    [Arguments]    ${url}    ${browser}
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    Set Selenium Speed    ${WAIT TIME}
+
+Close Browser
+    Close Browser
+
+Close All Browsers
+    Close All Browsers
+

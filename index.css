@@ -248,7 +248,7 @@ body:not(.user-is-tabbing) a:focus {
   margin-top: 0.4rem;
   text-align: center;
   width: 280px;
-  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .btn:focus {
@@ -470,8 +470,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .header__text {
   position: absolute;
-  top: 70%;
-  transform: translateY(-50%);
+  top: 50%;
 }
 
 .header__text p {
@@ -713,9 +712,10 @@ a {
 }
 
 .main {
+  position: relative;
   text-align: left;
   padding-top: 100px;
-  margin-left: 10%;
+  margin-left: 11%;
 }
 
 .hamburger {
@@ -1076,7 +1076,7 @@ a {
   max-width: 100%;
   padding: 10px;
   color: #fff;
-  display: none; /* Oculta los mensajes por defecto */
+  display: none; 
   animation: colorChange 3s forwards;
 }
 
@@ -1106,7 +1106,7 @@ a {
   }
   100% {
     color: #000000;
-    display: none;
+    visibility: hidden;
   }
 }
 

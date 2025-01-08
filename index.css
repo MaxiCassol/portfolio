@@ -1057,7 +1057,7 @@ a {
     transform: translate(-50%, -50%);
   }
   100% {
-    transform: translate(0%, -50%);    
+    transform: translate(0%, -50%);
   }
 }
 
@@ -1076,7 +1076,7 @@ a {
   max-width: 100%;
   padding: 10px;
   color: #fff;
-  display: none; 
+  display: none;
   animation: colorChange 3s forwards;
 }
 
@@ -1111,7 +1111,7 @@ a {
 }
 
 @media (max-width: 500px) {
-.switch-container{
-  display:none;
-}
+  .switch-container {
+    display: none;
+  }
 }

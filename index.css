@@ -549,10 +549,6 @@ body:not(.user-is-tabbing) a:focus {
   margin-bottom: var(--gutter-normal);
 }
 
-/* .work__image-box2 {
-  text-align: center;
-} */
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -597,9 +593,6 @@ body:not(.user-is-tabbing) a:focus {
   .work__code {
     height: 4rem;
   }
-  /* .work__image-box2 {
-    display: none;
-  } */
 }
 
 /* --------------------------------------- */

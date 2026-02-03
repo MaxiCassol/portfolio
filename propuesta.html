@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta JCA - Maximiliano Cassol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CONFIGURACIÓN GENERAL */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 40px 0;
+            gap: 50px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* TIPOGRAFÍA */
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: #0f172a; margin: 0; }
+        p, li { color: #334155; line-height: 1.5; font-size: 18px; }
+
+        .slide-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border-left: 10px solid #0ea5e9;
+            padding-left: 25px;
+            text-transform: uppercase;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* LAYOUTS */
+        .title-layout {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            margin: -60px;
+        }
+        .title-layout h1 { color: white; font-size: 64px; margin-bottom: 20px; line-height: 1.1; }
+        .title-layout .subtitle { font-size: 24px; color: #38bdf8; font-weight: 500; letter-spacing: 3px; }
+
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+        .image-wrapper { border-radius: 15px; overflow: hidden; height: 420px; background: #f1f5f9; border: 1px solid #e2e8f0; }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        .tile-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .tile { background: #f8fafc; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .tile i { color: #0ea5e9; font-size: 32px; margin-bottom: 15px; }
+        .tile h3 { font-size: 18px; margin-bottom: 10px; }
+        .tile p { font-size: 14px; }
+
+        /* ROADMAP */
+        .roadmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .roadmap-card { background: white; border: 1px solid #e2e8f0; padding: 25px; border-radius: 12px; position: relative; }
+        .roadmap-card::after { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: #0ea5e9; border-radius: 12px 0 0 12px; }
+        .roadmap-card span { color: #0ea5e9; font-weight: 800; font-size: 12px; }
+        .roadmap-card h4 { margin: 5px 0; font-size: 17px; }
+
+        /* COST ANALYSIS */
+        .cost-card { background: #f8fafc; border-radius: 16px; padding: 30px; border-top: 6px solid #0f172a; }
+        .cost-card.recommended { background: #f0f9ff; border-top-color: #0ea5e9; }
+        .cost-value { font-size: 32px; font-weight: 700; color: #0f172a; margin: 15px 0; }
+
+        /* RECOMENDACIÓN FINAL (ESTILO SOLICITADO) */
+        .rec-final-box {
+            background: #1e293b;
+            border-left: 8px solid #38bdf8;
+            border-radius: 20px;
+            padding: 50px;
+            color: white;
+            width: 100%;
+        }
+        .rec-final-box h3 { color: #38bdf8; font-size: 22px; margin-bottom: 25px; }
+        .rec-final-box p { color: #cbd5e1; font-size: 20px; line-height: 1.6; margin-bottom: 35px; }
+        .rec-final-box .highlight {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            font-size: 20px;
+        }
+        .rec-icons { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+        .rec-icon i { font-size: 36px; color: #38bdf8; margin-bottom: 12px; }
+        .rec-icon span { display: block; color: #94a3b8; font-size: 14px; font-weight: 500; }
+
+        /* FULL BG OVERLAY */
+        .full-bg { background-size: cover; background-position: center; position: relative; }
+        .full-bg-overlay {
+            background: rgba(15, 23, 42, 0.85);
+            height: 100%;
+            width: 100%;
+            margin: -60px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .full-bg-overlay h2 { color: white; font-size: 52px; margin-bottom: 20px; }
+        .full-bg-overlay p { color: #cbd5e1; font-size: 22px; max-width: 900px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. PORTADA -->
+    <div class="slide-container" id="slide1">
+        <div class="title-layout">
+            <h1>Proyecto Plataforma Integral JCA<br>Sistemas & Automatización</h1>
+            <p class="subtitle">Propuesta Estratégica de Maximiliano Cassol</p>
+        </div>
+    </div>
+
+    <!-- 2. CONTEXTO Y DESAFÍOS -->
+    <div class="slide-container" id="slide2">
+        <h2 class="slide-title">Contexto y desafíos</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p style="font-size: 22px;">JCA requiere una evolución digital para sostener su crecimiento y resolver la ineficiencia manual.</p>
+                    <ul style="margin-top: 25px; display: flex; flex-direction: column; gap: 15px;">
+                        <li><strong>Ineficiencia:</strong> Procesos manuales que no escalan.</li>
+                        <li><strong>Fragmentación:</strong> Herramientas aisladas y desintegradas.</li>
+                        <li><strong>Error Humano:</strong> Carga manual duplicada de datos.</li>
+                        <li><strong>Visibilidad:</strong> Dificultad para obtener reportes reales.</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1280&auto=format&fit=crop" alt="[Imagen de Showroom de Autos]">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. OBJETIVOS ESTRATÉGICOS -->
+    <div class="slide-container" id="slide3">
+        <h2 class="slide-title">Objetivos Estratégicos</h2>
+        <div class="content-area">
+            <div class="tile-grid">
+                <div class="tile">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h3>Ordenar e Integrar</h3>
+                    <p>Estandarizar procesos bajo un solo ecosistema que conecte todas las áreas.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-link"></i>
+                    <h3>Centralización</h3>
+                    <p>Eliminar silos de información mediante una fuente única de verdad.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>Automatizar</h3>
+                    <p>Implementar IA para tareas administrativas de bajo valor.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h3>Escalar</h3>
+                    <p>Crear un activo tecnológico replicable para nuevas sucursales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. ROADMAP PROPUESTO -->
+    <div class="slide-container" id="slide4">
+    <h2 class="slide-title">Roadmap: Plan de Ejecución</h2>
+    <div class="content-area">
+        <div class="roadmap-grid">
+
+            <div class="roadmap-card">
+                <span>FASE 0</span>
+                <h4>Discovery AS-IS</h4>
+                <p style="font-size: 13px;">Diagnóstico de procesos actuales.</p>
+                <p style="font-size: 12px; opacity: 0.7;">⏱️ 4 semanas (+1 buffer)</p>
+            </div>
+
+            <div class="roadmap-card">
+                <span>FASE 1</span>
+                <h4>Arquitectura TO-BE</h4>
+                <p style="font-size: 13px;">Diseño del sistema central.</p>
+                <p style="font-size: 12px; opacity: 0.7;">⏱️ 4–6 semanas (+2 buffer)</p>
+            </div>
+
+            <div class="roadmap-card">
+                <span>FASE 2</span>
+                <h4>Dominio RRHH</h4>
+                <p style="font-size: 13px;">Control horario y legajos automáticos.</p>
+                <p style="font-size: 12px; opacity: 0.7;">⏱️ 4–6 semanas (+2 buffer)</p>
+            </div>
+
+            <div class="roadmap-card">
+                <span>FASE 3</span>
+                <h4>Back Office Core</h4>
+                <p style="font-size: 13px;">Inventario, facturación y caja.</p>
+                <p style="font-size: 12px; opacity: 0.7;">⏱️ 8–10 semanas (+3 buffer)</p>
+            </div>
+
+            <div class="roadmap-card">
+                <span>FASE 4</span>
+                <h4>Front Office / CRM</h4>
+                <p style="font-size: 13px;">Potenciación comercial e IA.</p>
+                <p style="font-size: 12px; opacity: 0.7;">⏱️ 6–8 semanas (+2 buffer)</p>
+            </div>
+
+            <div class="roadmap-card" style="background:#f8fafc; border-left-color:#0f172a;">
+                <span style="color:#0f172a;">FASE 5</span>
+                <h4>Producto Replicable</h4>
+                <p style="font-size: 13px;">Estandarización comercial de JCA.</p>
+                <p style="font-size: 12px; opacity: 0.7;">⏱️ 8–12 semanas (+4 buffer)</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <!-- 5. FASES 0 Y 1: DISCOVERY Y DISEÑO -->
+    <div class="slide-container" id="slide5">
+        <h2 class="slide-title">Fases 0 y 1: Discovery y Diseño</h2>
+        <div class="content-area">
+            <div class="two-column" style="align-items: stretch;">
+                <div class="tile" style="border-left: 6px solid #64748b;">
+                    <h3 style="color:#64748b">Discovery AS-IS</h3>
+                    <ul style="font-size: 15px;">
+                        <li>Relevamiento de procesos por área.</li>
+                        <li>Identificación de herramientas actuales.</li>
+                        <li>Detección de cuellos de botella críticos.</li>
+                    </ul>
+                </div>
+                <div class="tile" style="border-left: 6px solid #0ea5e9;">
+                    <h3 style="color:#0ea5e9">Arquitectura TO-BE</h3>
+                    <ul style="font-size: 15px;">
+                        <li>Diseño de la arquitectura tecnológica.</li>
+                        <li>Definición del sistema central integrador.</li>
+                        <li>Roadmap detallado de implementación.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. FASE 2: RRHH | IA & AUTOMATIZACIÓN -->
+    <div class="slide-container" id="slide6">
+        <h2 class="slide-title">Fase 2: Dominio de RRHH e IA</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p><strong>Objetivo:</strong> Ordenar la gestión de personal integrada al sistema central.</p>
+                    <ul style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+                        <li><strong>Control:</strong> Asistencia y control horario automático.</li>
+                        <li><strong>Gestión:</strong> Legajos digitales y vacaciones.</li>
+                        <li><strong>Talento:</strong> Control de herramientas y reclutamiento.</li>
+                        <li><strong>IA:</strong> Automatización de flujos internos.</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://thelogisticsworld.com/wp-content/uploads/2020/11/talento-humano-y-tecnologia.jpg" alt="[Imagen de Gestión de Talento]">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. FASE 3: BACK OFFICE | CORE OPERATIVO -->
+    <div class="slide-container" id="slide7">
+        <h2 class="slide-title">Fase 3: Back Office Core Operativo</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="image-wrapper">
+                    <img src="https://dowc.com/wp-content/uploads/2024/12/blog-future.png" alt="[Imagen de Logística y Almacén]">
+                </div>
+                <div>
+                    <p><strong>Resolución del punto crítico:</strong> Trazabilidad total.</p>
+                    <ul style="margin-top: 25px; display: flex; flex-direction: column; gap: 12px;">
+                        <li>Inventario en tiempo real por sucursal.</li>
+                        <li>Gestión documental y crediticia unificada.</li>
+                        <li>Compras, gestoría y control de entregas.</li>
+                        <li>Cajas unificadas y facturación central.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. FASE 4: COMERCIAL | FRONT OFFICE E IA -->
+    <div class="slide-container" id="slide8">
+        <h2 class="slide-title">Fase 4: Potenciación Comercial</h2>
+        <div class="content-area">
+            <div class="tile-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="tile">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h3>Optimización CRM</h3>
+                    <p>Integración profunda de Kommo con flujos administrativos.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>IA de Ventas</h3>
+                    <p>Asistentes conversacionales para pre-calificación de leads.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <h3>Trazabilidad</h3>
+                    <p>Automatización de propuestas y seguimiento de financiación.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. FASE 5: LA VISIÓN FINAL -->
+    <div class="slide-container full-bg" id="slide9" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1280&auto=format&fit=crop');">
+        <div class="full-bg-overlay">
+            <h2>Fase 5: Evolución a Producto</h2>
+            <p>Transformar el ecosistema interno de JCA en un activo comercializable. Parametrización y estandarización para convertir el sistema en un producto propio listo para ser replicado en el mercado automotriz.</p>
+        </div>
+    </div>
+
+    <!-- 10. ANÁLISIS DE CONTRATACIÓN -->
+    <div class="slide-container" id="slide10">
+        <h2 class="slide-title">Análisis de Contratación</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="cost-card">
+                    <h3>Opción A: Contractor</h3>
+                    <p style="font-size: 15px; color: #64748b;">Socio Externo por Proyecto</p>
+                    <div class="cost-value">USD 2.5k - 3.5k<br><span style="font-size: 16px; font-weight: 400;">Costo mensual estimado</span></div>
+                    <ul style="font-size: 15px; padding-left: 20px;">
+                        <li>Costos totales más altos a largo plazo.</li>
+                        <li>Riesgo de dependencia del proveedor.</li>
+                        <li>Conocimiento técnico fuera de la empresa.</li>
+                    </ul>
+                </div>
+                <div class="cost-card recommended">
+                    <h3>Opción B: Interno</h3>
+                    <p style="font-size: 15px; color: #64748b;">Relación de Dependencia</p>
+                    <div class="cost-value">ARS 1.6M - 2.0M<br><span style="font-size: 16px; font-weight: 400;">Inversión mensual empresa</span></div>
+                    <ul style="font-size: 15px; padding-left: 20px; font-weight: 600; color: #0369a1;">
+                        <li><strong>Medio tiempo</strong> | Mayormente remoto.</li>
+                        <li>Ownership total del activo intelectual.</li>
+                        <li>Alineación absoluta con el negocio.</li>
+                        <li>Menor costo total del proyecto.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. RECOMENDACIÓN ESTRATÉGICA -->
+    <div class="slide-container" id="slide11">
+        <h2 class="slide-title">Recomendación Estratégica</h2>
+        <div class="content-area">
+            <div class="rec-final-box">
+                <h3>Visión Estratégica</h3>
+                <p>Dado que el sistema se proyecta como <strong>core del negocio</strong> y potencial <strong>producto replicable</strong>, se recomienda:</p>
+                
+                <div class="highlight">
+                    Avanzar con <strong>Relación de Dependencia</strong> para construir conocimiento interno, reducir riesgos y maximizar el retorno de la inversión (ROI).
+                </div>
+
+                <div class="rec-icons">
+                    <div class="rec-icon">
+                        <i class="fa-solid fa-brain"></i>
+                        <span>Activo Intelectual</span>
+                    </div>
+                    <div class="rec-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Control de Riesgos</span>
+                    </div>
+                    <div class="rec-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Eficiencia en Costos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12. SLIDE FINAL -->
+    <div class="slide-container" id="slide12">
+        <div class="title-layout" style="background: white;">
+            <h2 style="font-size: 64px; color: #0f172a;">Hacia un futuro<br>más eficiente</h2>
+            <p style="font-size: 28px; color: #0ea5e9; font-weight: 500; margin-top: 10px;">Proyecto Plataforma Integral JCA</p>
+            <div style="font-size: 34px; color: #0f172a; margin-top: 50px; font-weight: 600;">Maximiliano Cassol</div>
+        </div>
+    </div>
+
+</body>
+</html>
